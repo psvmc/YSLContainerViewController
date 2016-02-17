@@ -91,7 +91,7 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
     [self.view addSubview:_menuView];
     [_menuView setShadowView];
     
-    [self scrollMenuViewSelectedIndex:0];
+    [self scrollMenuViewSelectedIndex:self.selectIndex];
 }
 
 #pragma mark -- private
@@ -126,13 +126,17 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
                    currentIndex:index];
     
     [self setChildViewControllerWithCurrentIndex:index];
-    
+
     if (index == self.currentIndex) { return; }
     self.currentIndex = index;
+    [_menuView setIndicatorViewFrameWithIndex:index];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(containerViewItemIndex:currentController:)]) {
         [self.delegate containerViewItemIndex:self.currentIndex currentController:_childControllers[self.currentIndex]];
     }
+    
+
+    
 }
 
 #pragma mark -- ScrollView Delegate
@@ -173,6 +177,8 @@ static const CGFloat kYSLScrollMenuViewHeight = 40;
         }
     }
 }
+
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {

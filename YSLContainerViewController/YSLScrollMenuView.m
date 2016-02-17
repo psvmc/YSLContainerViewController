@@ -126,6 +126,19 @@ static const CGFloat kYSLIndicatorHeight = 3;
     //  NSLog(@"retio : %f",_indicatorView.frame.origin.x);
 }
 
+//根据默认选择的项设置滑动条的位置以及scrollView的位置
+- (void)setIndicatorViewFrameWithIndex:(NSInteger)index{
+    CGFloat indicatorX = 0.0;
+    indicatorX =  kYSLScrollMenuViewWidth * index + kYSLScrollMenuViewMargin * (index + 1);
+    _indicatorView.frame = CGRectMake(indicatorX, _scrollView.frame.size.height - kYSLIndicatorHeight, kYSLScrollMenuViewWidth, kYSLIndicatorHeight);
+    CGPoint offset = _scrollView.contentOffset;
+    
+    CGFloat scrollViewWidth = _scrollView.frame.size.width;
+    CGFloat scrollViewContentWidth = self.itemViewArray.count * kYSLScrollMenuViewWidth + kYSLScrollMenuViewMargin * (self.itemViewArray.count + 1);
+    offset.x = (scrollViewContentWidth - scrollViewWidth) / (self.itemViewArray.count - 1) * index;
+    [_scrollView setContentOffset:offset animated:YES];
+}
+
 - (void)setItemTextColor:(UIColor *)itemTextColor
     seletedItemTextColor:(UIColor *)selectedItemTextColor
             currentIndex:(NSInteger)currentIndex

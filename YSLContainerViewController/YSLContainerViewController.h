@@ -4,6 +4,7 @@
 //
 //  Created by yamaguchi on 2015/02/10.
 //  Copyright (c) 2015年 h.yamaguchi. All rights reserved.
+//  添加设置初始化item
 //
 
 #import <UIKit/UIKit.h>
@@ -27,6 +28,7 @@
 @property (nonatomic, strong) UIColor *menuItemSelectedTitleColor;
 @property (nonatomic, strong) UIColor *menuBackGroudColor;
 @property (nonatomic, strong) UIColor *menuIndicatorColor;
+@property (nonatomic) NSInteger selectIndex;
 
 - (id)initWithControllers:(NSArray *)controllers
              topBarHeight:(CGFloat)topBarHeight

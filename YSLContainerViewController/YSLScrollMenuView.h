@@ -31,6 +31,8 @@
 
 - (void)setIndicatorViewFrameWithRatio:(CGFloat)ratio isNextItem:(BOOL)isNextItem toIndex:(NSInteger)toIndex;
 
+- (void)setIndicatorViewFrameWithIndex:(NSInteger)index;
+
 - (void)setItemTextColor:(UIColor *)itemTextColor
     seletedItemTextColor:(UIColor *)selectedItemTextColor
             currentIndex:(NSInteger)currentIndex;

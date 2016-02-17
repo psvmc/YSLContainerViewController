@@ -1,22 +1,19 @@
+# Xcode
 
-# Ignore python compiled files
-*.pyc
-
-# Ignore files build by xcode
-*.mode*v*
-*.pbxuser
 *.xccheckout
-#*.xcbkptlist
-#*.xcscheme
-#*.xcworkspacedata
-*.xcuserstate
-#xcschememanagement.plist
-build/
 .DS_Store
-._.*
-xcuserdata/
-DerivedData/
+xcuserdata
+UserInterfaceState.xcuserstate
+contents.xcworkspacedata
+build/
 
-# Ignore vim swaps
-*.swp
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
 
+# CocoaPods
+Pods
+.idea/
+*.xcbkptlist
+Podfile.lock
